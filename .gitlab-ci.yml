@@ -9,15 +9,17 @@ stages:
   before_script:
     - git config core.longPaths true
   script:  
-    # - apt-get install zip git -y  
+    - apt-get install zip git -y  
     - >
       Unity
+      -batchMode
+      -nographics
       -quit
       -executeMethod BuildProject.${BUILD_TARGET}
       -projectPath ${CI_PROJECT_DIR}
       -logFile
-    - Compress-Archive -Path Builds\${BUILD_TARGET} -DestinationPath ${BUILD_TARGET}.zip
-    # - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
+    # - Compress-Archive -Path Builds\${BUILD_TARGET} -DestinationPath ${BUILD_TARGET}.zip
+    - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
   artifacts:
     name: ${BUILD_TARGET}.zip
     paths:
