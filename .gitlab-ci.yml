@@ -4,15 +4,15 @@ stages:
 .build:
   image: registry.gitlab.com/rybrow1/unity-docker-builder:2022.3_registered
   stage: build
-  script: 
+  script:  
+    - apt-get install zip git -y  
     - >
       Unity
       -quit
       -batchmode
       -nographics
       -executeMethod BuildProject.${BUILD_TARGET}
-      -projectPath ${CI_PROJECT_DIR} 
-    - apt-get install zip -y
+      -projectPath ${CI_PROJECT_DIR}
     - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
   artifacts:
     name: ${BUILD_TARGET}
