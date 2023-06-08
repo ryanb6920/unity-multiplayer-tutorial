@@ -11,6 +11,7 @@ public class BuildProject
 
         BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
+            scenes = scenes,
             locationPathName = "Builds/Win64Server",
             target = BuildTarget.StandaloneWindows64,
             subtarget = (int)StandaloneBuildSubtarget.Server
@@ -26,6 +27,7 @@ public class BuildProject
 
         BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
+            scenes = scenes,
             locationPathName = "Builds/LinuxServer",
             target = BuildTarget.StandaloneLinux64,
             subtarget = (int)StandaloneBuildSubtarget.Server
@@ -41,6 +43,7 @@ public class BuildProject
 
         BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
+            scenes = scenes,
             locationPathName = "Builds/Win64Client",
             target = BuildTarget.StandaloneWindows64
         });
