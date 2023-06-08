@@ -7,19 +7,19 @@ stages:
   tags:
     - desktop-runner
   script:  
-    - apt-get install zip git -y  
+    # - apt-get install zip git -y  
     - >
       Unity
       -quit
       -batchmode
       -executeMethod BuildProject.${BUILD_TARGET}
       -projectPath ${CI_PROJECT_DIR}
-    - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
-  artifacts:
-    name: ${BUILD_TARGET}
-    paths:
-      - ${BUILD_TARGET}_build.zip
-    expire_in: "1 day"
+    # - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
+  # artifacts:
+  #   name: ${BUILD_TARGET}
+  #   paths:
+  #     - ${BUILD_TARGET}_build.zip
+    # expire_in: "1 day"
 
 build: 
   extends: .build
