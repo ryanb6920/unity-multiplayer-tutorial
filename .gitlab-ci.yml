@@ -6,6 +6,8 @@ stages:
   stage: build
   tags:
     - desktop-runner
+  before_script:
+    - git config advice.nameTooLong false
   script:  
     # - apt-get install zip git -y  
     - >
