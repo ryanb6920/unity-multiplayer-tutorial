@@ -12,7 +12,7 @@ public class BuildProject
         BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
             scenes = scenes,
-            locationPathName = "Builds/Win64Server",
+            locationPathName = "Builds/Win64Server/multiplayer-tutorial.exe",
             target = BuildTarget.StandaloneWindows64,
             subtarget = (int)StandaloneBuildSubtarget.Server
         });
@@ -28,7 +28,7 @@ public class BuildProject
         BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
             scenes = scenes,
-            locationPathName = "Builds/LinuxServer",
+            locationPathName = "Builds/LinuxServer/multiplayer-tutorial",
             target = BuildTarget.StandaloneLinux64,
             subtarget = (int)StandaloneBuildSubtarget.Server
         });
@@ -44,7 +44,7 @@ public class BuildProject
         BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
             scenes = scenes,
-            locationPathName = "Builds/Win64Client",
+            locationPathName = "Builds/Win64Client/multiplayer-tutorial.exe",
             target = BuildTarget.StandaloneWindows64
         });
     }
