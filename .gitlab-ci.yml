@@ -13,7 +13,6 @@ stages:
     - >
       Unity
       -quit
-      -batchmode
       -executeMethod BuildProject.${BUILD_TARGET}
       -projectPath ${CI_PROJECT_DIR}
       -logFile
