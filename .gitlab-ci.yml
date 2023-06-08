@@ -1,0 +1,30 @@
+stages:
+  - build
+
+.build:
+  image: registry.gitlab.com/rybrow1/unity-docker-builder:2022.3_registered
+  script: 
+    - >
+      Unity
+      -quit
+      -batchmode
+      -nographics
+      -executeMethod BuildProject.${BUILD_TARGET}
+      -projectPath ${CI_PROJECT_DIR} 
+    - apt-get install zip -y
+    - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
+  artifacts:
+    name: ${BUILD_TARGET}
+    paths:
+      - ${BUILD_TARGET}_build.zip
+    expire_in: "1 day"
+
+build: 
+  extends: .build
+  parallel:
+    matrix:
+      - BUILD_TARGET:
+          - LinuxServer
+          - Win64Client
+          - Win64Server
+  
