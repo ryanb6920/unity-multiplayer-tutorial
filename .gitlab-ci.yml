@@ -7,7 +7,7 @@ stages:
   tags:
     - desktop-runner
   before_script:
-    - git config advice.nameTooLong false
+    - git config core.longPaths true
   script:  
     # - apt-get install zip git -y  
     - >
