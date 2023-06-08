@@ -14,12 +14,13 @@ stages:
       -batchmode
       -executeMethod BuildProject.${BUILD_TARGET}
       -projectPath ${CI_PROJECT_DIR}
+    - Compress-Archive -Path Builds\${BUILD_TARGET} -DestinationPath ${BUILD_TARGET}.zip
     # - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
-  # artifacts:
-  #   name: ${BUILD_TARGET}
-  #   paths:
-  #     - ${BUILD_TARGET}_build.zip
-    # expire_in: "1 day"
+  artifacts:
+    name: ${BUILD_TARGET}.zip
+    paths:
+      - ${BUILD_TARGET}_build.zip
+    expire_in: "1 day"
 
 build: 
   extends: .build
