@@ -3,6 +3,7 @@ stages:
 
 .build:
   image: registry.gitlab.com/rybrow1/unity-docker-builder:2022.3_registered
+  stage: build
   script: 
     - >
       Unity
