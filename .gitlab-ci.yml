@@ -14,6 +14,7 @@ stages:
       -batchmode
       -executeMethod BuildProject.${BUILD_TARGET}
       -projectPath ${CI_PROJECT_DIR}
+      -logFile
     - Compress-Archive -Path Builds\${BUILD_TARGET} -DestinationPath ${BUILD_TARGET}.zip
     # - zip ${BUILD_TARGET}_build.zip Builds/${BUILD_TARGET}
   artifacts:
